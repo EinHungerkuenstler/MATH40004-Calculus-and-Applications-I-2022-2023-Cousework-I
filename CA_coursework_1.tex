@@ -1,0 +1,295 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Packages
+\documentclass[10pt, a4paper]{article}
+\usepackage[top=3cm, bottom=4cm, left=3.5cm, right=3.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd, fancyhdr, color, comment, graphicx, environ, pifont}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage[math-style=ISO]{unicode-math}
+\setmathfont{TeX Gyre Termes Math}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\usepackage{fancyhdr}
+\usepackage{indentfirst}
+\usepackage{listings}
+\usepackage{sectsty}
+\usepackage{thmtools}
+\usepackage{shadethm}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage[linguistics]{forest}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Environment setup
+\mdfsetup{skipabove=\topskip,skipbelow=\topskip}
+\newrobustcmd\ExampleText{%
+An \textit{inhomogeneous linear} differential equation has the form
+\begin{align}
+L[v ] = f,
+\end{align}
+where $L$ is a linear differential operator, $v$ is the dependent
+variable, and $f$ is a given non−zero function of the independent
+variables alone.
+}
+\mdfdefinestyle{theoremstyle}{%
+linecolor=black,linewidth=1pt,%
+frametitlerule=true,%
+frametitlebackgroundcolor=gray!20,
+innertopmargin=\topskip,
+}
+\mdtheorem[style=theoremstyle]{Problem}{Problem}
+\newenvironment{Solution}{\textbf{Solution.}}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}     
+\newcommand\course{Course name}                            % <-- course name   
+\newcommand\hwnumber{COMP400XXX-X}                                 % <-- homework number
+\newcommand\Information{(Your name)}                        % <-- personal information
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Page setup
+\pagestyle{fancy}
+\headheight 35pt
+\lhead{\today}
+\rhead{\includegraphics[width=2.5cm]{icl_logo.png}}
+\lfoot{}
+\pagenumbering{arabic}
+\cfoot{\small\thepage}
+\rfoot{}
+\headsep 1.2em
+\renewcommand{\baselinestretch}{1.25}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Add new commands here
+\renewcommand{\labelenumi}{\alph{enumi})}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\PP}{\mathbb P}
+\DeclareMathOperator{\Mod}{Mod} 
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newtheorem{case}{Case}
+\newcommand{\assign}{:=}
+\newcommand{\infixiff}{\text{ iff }}
+\newcommand{\nobracket}{}
+\newcommand{\backassign}{=:}
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmtextbf}[1]{\text{{\bfseries{#1}}}}
+\newcommand{\tmtextit}[1]{\text{{\itshape{#1}}}}
+
+\newenvironment{itemizedot}{\begin{itemize} \renewcommand{\labelitemi}{$\bullet$}\renewcommand{\labelitemii}{$\bullet$}\renewcommand{\labelitemiii}{$\bullet$}\renewcommand{\labelitemiv}{$\bullet$}}{\end{itemize}}
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+\catcode`\>=\active \def>{
+\fontencoding{T1}\selectfont\symbol{62}\fontencoding{\encodingdefault}}
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Begin now!
+
+
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{3cm}
+            
+        \Huge
+        \textbf{
+            Autumn Take-home Assessment
+                }
+            
+            
+        \vspace{1.5cm}
+        \Large
+            
+        \textbf{
+        CID number: Once upon a time...}% <-- author
+        
+            
+        \vfill
+        
+        MATH40004: Calculus and Applications        
+        \vspace{1cm}
+            
+        \includegraphics[width=0.4\textwidth]{icl_logo.png}
+        \\
+        
+        \Large
+        
+        \today
+            
+    \end{center}
+\end{titlepage}
+
+
+\newpage
+\begin{Problem}
+    The equation
+
+    $$
+    y^{\prime}=1+y^{2}, \quad y(0)=0,
+    $$
+    
+    can be solved using separation of variables and integration to find $y=\tan x$.
+    
+    (a) Find a power series solution of $(* *)$ and hence show that
+    
+    $$
+    \tan x=x+\frac{1}{3} x^{3}+\frac{2}{15} x^{5}+\ldots
+    $$
+    
+    [Note: you will need to use the earlier formulas for multiplication of two infinite power series.]
+    
+    (b) Now get the result above by repeated differentiation of $(* *)$ and use of the formula $a_{n}=\frac{f^{(n)}(0)}{n !}$
+\end{Problem}
+\begin{Solution}
+    (a) We assume that a power series solution exists, i.e.
+
+$$
+y(x)=\sum_{n=0}^{\infty} a_{n} x^{n}=a_{0}+a_{1} x+a_{2} x^{2}+\ldots+a_{n} x^{n}+\ldots
+$$
+
+converges for $|x|<R$ for some positive radius of convergence $R>0$. Then, we can differentiate the power series term by term to find
+
+$$
+y(x)^{\prime}=\sum_{n=1}^{\infty} n a_{n} x^{n-1}=a_{1}+2 a_{2} x+3 a_{3} x^{2}+\ldots+(n+1) a_{n+1} x^{n}+\ldots
+$$
+
+Hence $(* *)$ is satisfied if $(2)=1+(1)^{2}$. Therefore, we have
+
+$$
+\sum_{n=1}^{\infty} n a_{n} x^{n-1}=1+\left(\sum_{n=0}^{\infty} a_{n} x^{n}\right)^{2}
+$$
+
+by the formulas for multiplication of two infinite power series, we get:
+
+$$
+\left(\sum_{n=0}^{\infty} a_{n} x^{n}\right)^{2}=\sum_{n=0}^{\infty}\left(\sum_{m=0}^{n} a_{m} a_{n-m}\right) x^{n}
+$$
+
+Substitute (4) into (3), we get:
+
+$$
+\sum_{n=1}^{\infty} n a_{n} x^{n-1}=1+\sum_{n=0}^{\infty}\left(\sum_{m=0}^{n} a_{m} a_{n-m}\right) x^{n} .
+$$
+
+Note that $a_{0}=0$ by the initial condition $y(0)=0$. If the equation (5) is satisfied, the coefficients of different powers of $x$ must match. By inspection
+
+$$
+\begin{aligned}
+a_{0} & =0 \\
+a_{1} & =1+a_{0}^{2} \Rightarrow a_{1}=1 \\
+2 a_{2} & =2 a_{0} a_{1} \Rightarrow a_{2}=0 \\
+3 a_{3} & =2 a_{0} a_{2}+a_{1}^{2} \Rightarrow a_{3}=\frac{1}{3} \\
+4 a_{4} & =2 a_{0} a_{3}+2 a_{1} a_{2} \Rightarrow a_{4}=0 \\
+5 a_{5} & =2 a_{0} a_{4}+2 a_{1} a_{3}+a_{2}^{2} \Rightarrow a_{5}=\frac{2}{15} \\
+& \vdots \\
+n a_{n} & =\sum_{m=0}^{n-1} a_{m} a_{(n-1)-m} \\
+(n+1) a_{n+1} & =\sum_{m=0}^{n} a_{m} a_{n-m}
+\end{aligned}
+$$
+
+Therefore, we get a power series solution of $(* *)$, which satisfied the recursion formula (6).
+
+(**) can be solved using separation of variable and integration to find $y=\tan x$. The detail is followed:
+
+$$
+\begin{aligned}
+y^{\prime}=1 & +y^{2} \\
+\frac{d y}{d x} & =1+y^{2} \\
+\frac{1}{1+y^{2}} d y & =d x \\
+\int \frac{1}{1+y^{2}} d y & =\int d x \\
+\tan ^{-1} y & =x+C_{1} \\
+y & =\tan x+C
+\end{aligned}
+$$
+
+$y(0)=0$, then $C=0$. Therefore, $y=\tan x$ is also a solution of $(* *)$. Then we have
+
+$$
+y(x)=\tan x=\sum_{n=0}^{\infty} a_{0} x^{n}=x+\frac{1}{3} x^{3}+\frac{2}{15} x^{5}+\ldots
+$$
+
+(b) We have $y^{\prime}=1+y^{2} \Longrightarrow f^{\prime}(0)=1$ as $f(0)=1$. Then, differentiate $(* *)$ at the both sides and repeat:
+
+$$
+\begin{aligned}
+y^{\prime \prime} & =2 y y^{\prime} \Longrightarrow f^{\prime \prime}(0)=0 \\
+y^{(3)} & =2\left(y^{\prime}\right)^{2}+2 y y^{\prime \prime} \Longrightarrow f^{(3)}(0)=2 \\
+y^{(4)} & =4 y^{\prime} y^{\prime \prime}+2 y^{\prime} y^{\prime \prime}+2 y y^{(3)} \Longrightarrow f^{(4)}(0)=0 \\
+y^{(5)} & =4\left(y^{\prime \prime}\right)^{2}+4 y^{\prime} y^{(3)}+2\left(y^{\prime \prime}\right)^{2}+2 y^{\prime} y^{(3)}+2 y^{\prime} y(3)+2 y y^{(4)} \Rightarrow f^{(5)}(0)=16
+\end{aligned}
+$$$$
+\vdots
+$$ 
+
+Use the formula $a_{n}=\frac{f^{(n)}(0)}{n !}$
+
+$$
+\begin{aligned}
+& a_{0}=\frac{f(0)}{0 !}=0 \\
+& a_{1}=\frac{f^{\prime}(0)}{1 !}=1 \\
+& a_{2}=\frac{f^{\prime \prime}(0)}{2 !}=0 \\
+& a_{3}=\frac{f^{(3)(0)}}{3 !}=\frac{1}{3} \\
+& a_{4}=\frac{f^{(4)}(0)}{4 !}=0 \\
+& a_{5}=\frac{f^{(5)}(0)}{5 !}=\frac{2}{15}
+\end{aligned}
+$$
+
+Then we get
+
+$$
+\tan x=x+\frac{1}{3} x^{3}+\frac{2}{15} x^{5}+\ldots
+$$
+\end{Solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Complete the assignment now
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
